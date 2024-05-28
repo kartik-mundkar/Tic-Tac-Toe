@@ -50,6 +50,7 @@ const match_won = {
 const audio_file_loc = {
     0: "./audio/game_won.mp3",
     1: "./audio/markdown.mp3",
+    2:"./audio/tie_sound.mp3"
 };
 
 let game_state = 1;
@@ -96,6 +97,12 @@ function game_function() {
         player1_score.textContent = match_won.player1;
         player2_score.textContent = match_won.player2;
         tie_score.textContent = match_won.tie;
+        marking_boxes.forEach((box)=>{
+            box.style.color='#E1F7F5';
+        })
+        player_score_cards.forEach((card)=>{
+            card.style.color='#EEEEEE';
+        })
     }
 
     window.addEventListener("load", () => {
@@ -204,17 +211,17 @@ function game_function() {
                                     user_input.not_available.push(
                                         computer_choice
                                     );
-                                    if (win_check() != 0) {
+                                    if (win_check()) {
                                         updatescore();
                                         setTimeout(reset_game, 1500);
-                                        // console.log("winner is declared");
+                                        console.log("winner is declared");
                                         return;
                                     } else {
                                         play_audio();
                                         // audio_file.play();
                                         toggle_current_player();
                                     }
-                                }, 500);
+                                }, 250);
                                 break;
                             }
                         }
@@ -224,11 +231,18 @@ function game_function() {
                 // this is for draw matches
                 if (user_input.not_available.length == 9 && game_state) {
                     match_won.tie += 1;
+                    // console.log('this is tie')
+                    audio_file.setAttribute('src',audio_file_loc[2]);
+                    audio_file.play()
+                    marking_boxes.forEach((box)=>{
+                        box.style.cssText='color: #DC5F00;';
+                    })
                     setTimeout(reset_game, 1500);
                     return 0;
                 }
             }
             if (!game_state) {
+                // console.log('updated via initial'); 
                 updatescore();
                 setTimeout(reset_game, 1500);
             }
@@ -236,10 +250,10 @@ function game_function() {
     });
 
     function win_check() {
-        winning_seq.forEach((seq) => {
+        winning_seq.forEach((seq,seq_index) => {
             let seq_match_count = 0;
-            seq.forEach((index) => {
-                if (user_input[current_player].includes(index)) {
+            seq.forEach((seq_elem) => {
+                if (user_input[current_player].includes(seq_elem)) {
                     seq_match_count += 1;
                 }
             });
@@ -248,9 +262,22 @@ function game_function() {
                 game_state = 0;
                 if (current_player == "player1") {
                     win_imgs[0].classList.remove("hide");
+                    player_score_cards[0].style.color='#4CCD99';
+                    player_score_cards[1].style.color='#DC5F00';
+                    
+                    
                 } else if (current_player == "player2") {
                     win_imgs[1].classList.remove("hide");
+                    player_score_cards[0].style.color='#DC5F00';
+                    player_score_cards[1].style.color='#4CCD99';
+                    
                 }
+                marking_boxes.forEach((box,index)=>{
+                    if(seq.includes(index)){
+                        // console.log(seq)
+                        box.style.color='#4CCD99';
+                    }
+                })
                 return current_player == "player1" ? 1 : 2;
             }
         });
