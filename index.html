@@ -22,24 +22,24 @@
             <audio src="./audio/markdown.mp3" id="game_audio"></audio>
             <div class="overlay">
                 <div>
-                    <div class="player-mode-overlay"><span></span> Player</div>
                     <img
                         src="./images/2-player.png"
                         alt="Game mode"
                         id="game-mode-img"
                     />
+                    <div class="player-mode-overlay"><span></span> Player</div>
                 </div>
                 <div class="audio-service">
-                    <div class="audio_overlay">On</div>
                     <img
                         src="./images/volume.png"
                         alt="audio service"
                         id="audio-box"
                     />
+                    <div class="audio_overlay">On</div>
                 </div>
                 <div id="developer">
-                    <div class="overlay_child_info">About</div>
                     <img src="./images/about-developer.png" alt="about us" />
+                    <div class="overlay_child_info">About</div>
                 </div>
             </div>
             <div class="container">
@@ -100,10 +100,50 @@
                 <img src="./images/restart.png" alt="restart" />
             </div>
         </div>
-        <div class="about_me">
+        <div class="about_me_overlay">
+            <div class="about_me">
+                <div class="close_about_me">
+                    <img
+                        src="./images/close.png"
+                        alt="close"
+                        class="close_icon"
+                    />
+                </div>
+                <div class="left_about">
+                    <div class="left_elem_parent">
+                        <div class="left_elem active_left_elem">Game</div>
+                        <div class="left_elem">Developer</div>
+                    </div>
+                </div>
+                <div class="right_about">
+                    <div class="about_game">
+                        <img
+                            src="./images/about_game/ui/0.png"
+                            alt=""
+                            id="game_pic"
+                        />
 
-          <!-- yet to be decided -->
+                        <div class="about_game_description">
+                            <div class="description_controls">
+                                <div>
+                                    <img src="./images/previous.png" alt="" />
+                                </div>
+                                <p>This is overall ui of the game</p>
+                                <div>
+                                    <img src="./images/next.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="about_dev">
+                        <div>Developer : Kartik Mundkar</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <script src="script.js"></script>
+        <script src="about.js"></script>
+        <script src="game.js"></script>
     </body>
 </html>
