@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    background-color: #373a40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: #eeeeee;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    user-select: none;
+    position: relative;
+}
+.game_page {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+.overlay > div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1.5rem;
+}
+.overlay > div > div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in-out 500ms;
+}
+
+.overlay img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    opacity: 0.75;
+    border-radius: 0.75rem;
+    transform: scale(0.75);
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}
+.overlay img:hover {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.overlay > div > img:hover + div {
+    visibility: visible;
+    opacity: 1;
+}
+.player_score_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.win_img img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    position: relative;
+}
+
+.player-mode-overlay span {
+    font-size: 24px;
+}
+
+.player_name_para {
+    display: flex;
+    align-items: center;
+}
+.player_name_para span {
+    font-size: 30px;
+}
+
+.player1-score,
+.player2-score {
+    font-size: 30px;
+}
+
+.container {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+    background-color: #686d76;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.box {
+    background-color: #373a40;
+    width: 8vw;
+    height: 8vw;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Courier Prime", monospace;
+    color: white;
+}
+.bottom-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.score-cards {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+.score-cards > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.score-cards > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.restart img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    opacity: 0.75;
+    border-radius: 0.75rem;
+    transform: scale(0.75);
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}
+
+.restart img:hover {
+    transform: scale(1.25);
+    opacity: 1;
+    transform: rotate(-25deg);
+}
+.courier-prime-regular {
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+@media screen and (max-width: 426px) {
+    .courier-prime-regular {
+        font-size: 16px;
+    }
+}
+
+.current-player-denoter {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    transform: translate(0, -120%) scale(1.25);
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.active_player {
+    border-radius: 0.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}

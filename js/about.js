@@ -2,7 +2,7 @@ const about_me_overlay = document.querySelector(".about_me_overlay");
 const about_me = document.querySelector("#developer img");
 const close_about_me = document.querySelector(".close_about_me .close_icon");
 const left_elem = document.querySelectorAll(".left_elem");
-const right_about= document.querySelector('.right_about');
+const right_about = document.querySelector(".right_about");
 
 const game_pic = document.querySelector("#game_pic");
 const game_pic_description = document.querySelector(
@@ -25,7 +25,6 @@ close_about_me.addEventListener("click", () => {
 game_pic.setAttribute("src", game_description_screenshots_loc[0]);
 game_pic_description.textContent = game_description_obj[0];
 
-
 left_elem.forEach((elem) => {
     elem.addEventListener("click", (event) => {
         left_elem.forEach((param) => {
@@ -33,12 +32,11 @@ left_elem.forEach((elem) => {
         });
         event.target.classList.add("active_left_elem");
         if (event.target.textContent == "Game") {
-            right_about.children[1].style.display='none'
-            right_about.children[0].style.display='block';
-            
+            right_about.children[1].style.display = "none";
+            right_about.children[0].style.display = "block";
         } else if (event.target.textContent == "Developer") {
-            right_about.children[0].style.display='none'
-            right_about.children[1].style.display='block'
+            right_about.children[0].style.display = "none";
+            right_about.children[1].style.display = "block";
         }
     });
 });
